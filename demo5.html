@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点赞组件</title>
+    <style>
+        .like{
+            background: brown;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <like></like>
+    <br>
+    <user username="xiaowang"></user>
+    <br>
+    <balance></balance>
+</div>
+<template id="myTemplate">
+    <button :class="{like:liked}" @click="like_up">喜欢:{{likeCount}}+</button>
+</template>
+<template id="myTemplate2">
+    <a :href="userAddress">@{{username}}</a>
+</template>
+<!--子组件-->
+<template id="showTemplate">
+    <button @click="on_click()">显示余额</button>
+</template>
+<!--父组件-->
+<template id="bTemplate">
+    <div>
+        <show @show-balance="show_balance=true"></show>
+        <div v-if="show_balance">
+            您的余额：96元
+        </div>
+    </div>
+</template>
+<script src="../lib/vue.js"></script>
+<script src="js/main5.js"></script>
+</body>
+</html>
